@@ -25,6 +25,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.border.LineBorder;
+import java.awt.Label;
 
 
 
@@ -54,15 +56,18 @@ public class LoginPage extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginPage() {
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 923, 755);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JPanel MenuLogin = new JPanel();
-		MenuLogin.setBackground(new Color(204, 204, 204, 150));
+		MenuLogin.setBorder(new LineBorder(Color.PINK, 2));
+		MenuLogin.setBackground(new Color(220, 20, 60));
 		MenuLogin.setBounds((getWidth()/2)-(365/2), (getHeight()/2)-(379/2), 365, 379);
 		contentPane.add(MenuLogin);
 		MenuLogin.setLayout(null);
@@ -122,11 +127,6 @@ public class LoginPage extends JFrame {
 		recover.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		recover.setBounds(217, 332, 61, 16);
 		MenuLogin.add(recover);
-		
-		JLabel backgroundImage = new JLabel("New label");
-        backgroundImage.setBounds(0, 0, 923, 755);
-        backgroundImage.setIcon((Icon) new ImageIcon("imagens").getImage().getScaledInstance(backgroundImage.getWidth(),backgroundImage.getHeight(), Image.SCALE_DEFAULT)));
-        contentPane.add(backgroundImage);
 
         setResizable(false);
 	}
