@@ -32,19 +32,14 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 
 
-public class Registo extends JFrame {
+public class RecoverPassword extends JFrame {
 
 	private JPanel contentPane;
-	private PlaceholderTextField companyname;
-	private PlaceholderTextField email;
-	private PlaceholderTextField vatnumber;
-	private PlaceholderPasswordField username;
 	private PlaceholderPasswordField pwd;
-	private PlaceholderPasswordField confirmarpwd;
-	private JComboBox box;
 
 	/**
 	 * Launch the application.
@@ -53,7 +48,7 @@ public class Registo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Registo frame = new Registo();
+					RecoverPassword frame = new RecoverPassword();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +60,7 @@ public class Registo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Registo() {
+	public RecoverPassword() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 923, 755);
 		contentPane = new JPanel();
@@ -81,72 +76,38 @@ public class Registo extends JFrame {
 		contentPane.add(MenuLogin);
 		MenuLogin.setLayout(null);
 		
-		companyname = new PlaceholderTextField();
-		companyname.addFocusListener(new FocusAdapter() {
-		});
-		companyname.setBounds(99, 67, 179, 26);
-		companyname.setPlaceholder("Company Name");
-		companyname.setOpaque(true);
-		
-
-		MenuLogin.add(companyname);
-		companyname.setColumns(10);
-		
-		PlaceholderTextField vatnumber = new PlaceholderTextField();
-		vatnumber.setBounds(99, 104, 179, 26);
-		vatnumber.setPlaceholder("Vat Number");
-		MenuLogin.add(vatnumber);
-		
 		PlaceholderTextField email = new PlaceholderTextField();
-		email.setBounds(99, 142, 179, 26);
-		email.setPlaceholder("email");
+		email.setBounds(99, 81, 179, 26);
+		email.setPlaceholder("Insert a registered email");
 		MenuLogin.add(email);
 		
-		pwd = new PlaceholderPasswordField();
-		pwd.setOpaque(true);
-		pwd.setPlaceholder("Password");
-		pwd.setBounds(99, 218, 179, 26);
-		MenuLogin.add(pwd);
-
-		confirmarpwd = new PlaceholderPasswordField();
-		confirmarpwd.setOpaque(true);
-		confirmarpwd.setPlaceholder("Confirmar Password");
-		confirmarpwd.setBounds(99, 255, 179, 26);
-		MenuLogin.add(confirmarpwd);
-		
-		PlaceholderTextField username = new PlaceholderTextField();
-		username.setBounds(99, 181, 179, 26);
-		username.setPlaceholder("username");
-		MenuLogin.add(username);
 		
 		
-		
-		JButton Back = new JButton("Back");
-		Back.setBounds(21, 325, 117, 29);
-		MenuLogin.add(Back);
-		Back.addActionListener(
+		JButton Recover = new JButton("Recover");
+		Recover.setBounds(129, 152, 117, 29);
+		MenuLogin.add(Recover);
+		Recover.addActionListener(
 		new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Clicou no back!!");
+				JOptionPane.showMessageDialog(null, "Clicou no recover!!");
 			}
 		});
-		Back.setOpaque(true);
-		Back.setBorderPainted(false);
+		Recover.setOpaque(true);
+		Recover.setBorderPainted(false);
 		
-		JButton Register = new JButton("Register");
-		Register.setOpaque(true);
-		Register.setBorderPainted(false);
-		Register.setBounds(222, 325, 117, 29);
-		MenuLogin.add(Register);
+		JButton Cancel = new JButton("Cancel");
+		Cancel.setOpaque(true);
+		Cancel.setBorderPainted(false);
+		Cancel.setBounds(129, 192, 117, 29);
+		MenuLogin.add(Cancel);
 		
-		JComboBox box = new JComboBox();
-		box.setBounds(99, 292, 179, 22);
-        MenuLogin.add(box);
-        box.addItem("Restauração");
-        box.addItem("Farmacia");
-        box.addItem("Oficina");
         
-     
+        JLabel RecoverPassword = new JLabel("Recover Password");
+        RecoverPassword.setHorizontalAlignment(SwingConstants.CENTER);
+        RecoverPassword.setFont(new Font("Arial", Font.BOLD, 14));
+        RecoverPassword.setBounds(99, 45, 179, 14);
+        MenuLogin.add(RecoverPassword);
+       
 
 
         setResizable(false);
