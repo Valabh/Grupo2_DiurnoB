@@ -1,50 +1,33 @@
 package com.istec.pagina;
 
-import java.awt.BorderLayout;
-
+import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-
-import com.istec.paginas.componentes.PlaceholderPasswordField;
-import com.istec.paginas.componentes.PlaceholderTextField;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.border.LineBorder;
-import java.awt.Label;
-import java.awt.Dimension;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.SwingConstants;
-import java.awt.Panel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JFileChooser;
 
 
 
 public class Dashboard extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel label;
-	private JLabel adduser;
-	private JButton snacks;
-	private JButton Drinks;
-	private JButton HotDrinks;
+	private JButton manage;
+	private JButton stats;
+	private JTabbedPane painel;
+	private JPanel drinks;
+	private JPanel hotdrinks;
+	private JPanel snacks;
+	
+
 
 
 	/**
@@ -99,39 +82,24 @@ public class Dashboard extends JFrame {
         contentPane.add(Stats);
         Stats.setOpaque(true);
         Stats.setBorderPainted(false);
+       
         
-        JLabel label = new JLabel("");
-        Image img = new ImageIcon(this.getClass().getResource("/addUser.png")).getImage();
+        JTabbedPane painel = new JTabbedPane(JTabbedPane.TOP);
+        painel.setBounds(198, 184, 844, 535);
+        contentPane.add(painel);
         
-        JPanel drink = new JPanel();
-        drink.setBounds(347, 107, 69, 29);
-        contentPane.add(drink);
+        JPanel drinks = new JPanel();
+        painel.addTab("Drinks", null, drinks, null);
         
-        JLabel drinks = new JLabel("Drinks");
-        drink.add(drinks);
-        label.setIcon((Icon) img);
-        label.setBounds(893, 11, 192, 115);
-        contentPane.add(label);
-        Image Image = new ImageIcon(this.getClass().getResource("/addUser.png")).getImage();
-        label.setIcon((Icon) img);
-        
-        JPanel hotdrink = new JPanel();
-        hotdrink.setBounds(416, 107, 67, 29);
-        contentPane.add(hotdrink);
-        
-        JLabel hotdrinks = new JLabel("Hot Drinks\r\n");
-        hotdrink.add(hotdrinks);
+        JPanel hotdrinks = new JPanel();
+        painel.addTab("Hot Drinks", null, hotdrinks, null);
         
         JPanel snack = new JPanel();
-        snack.setBounds(268, 107, 79, 29);
-        contentPane.add(snack);
+        painel.addTab("Snack", null, snack, null);
         
-        JLabel Snacks = new JLabel("Snacks\r\n");
-        snack.add(Snacks);
-        
-        JPanel panel = new JPanel();
-        panel.setBounds(164, 167, 914, 557);
-        contentPane.add(panel);
+        JLabel lblNewLabel = new JLabel("New label");
+        lblNewLabel.setBounds(826, 26, 266, 142);
+        contentPane.add(lblNewLabel);
        
 
 
