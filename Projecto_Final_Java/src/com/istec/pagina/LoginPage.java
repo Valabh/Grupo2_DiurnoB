@@ -27,6 +27,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.LineBorder;
 import java.awt.Label;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 
 
@@ -60,6 +62,7 @@ public class LoginPage extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 923, 755);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -67,7 +70,7 @@ public class LoginPage extends JFrame {
 		
 		JPanel MenuLogin = new JPanel();
 		MenuLogin.setBorder(new LineBorder(Color.PINK, 2));
-		MenuLogin.setBackground(new Color(220, 20, 60));
+		MenuLogin.setBackground(SystemColor.activeCaption);
 		MenuLogin.setBounds((getWidth()/2)-(365/2), (getHeight()/2)-(379/2), 365, 379);
 		contentPane.add(MenuLogin);
 		MenuLogin.setLayout(null);
@@ -84,7 +87,7 @@ public class LoginPage extends JFrame {
 		Login.addActionListener(
 		new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Clicou no Login!!");
+				
 			}
 		});
 		Login.setOpaque(true);
@@ -127,7 +130,21 @@ public class LoginPage extends JFrame {
 		recover.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		recover.setBounds(217, 332, 61, 16);
 		MenuLogin.add(recover);
+		
+		JLabel lblNewLabel = new JLabel("\t\t\t\t\t\tX");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(JOptionPane.showInternalConfirmDialog(null,"Tem a certeza que quer fechar a aplicação?", "Confirmar", JOptionPane.YES_NO_OPTION)==0);
+			}
+		});
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setBounds(858, 0, 65, 35);
+		contentPane.add(lblNewLabel);
 
         setResizable(false);
 	}
 }
+
