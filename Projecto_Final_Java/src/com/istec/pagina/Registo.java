@@ -19,19 +19,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import com.istec.main.dados;
 import com.istec.paginas.componentes.PlaceholderPasswordField;
 import com.istec.paginas.componentes.PlaceholderTextField;
 
 public class Registo extends JFrame {
 
 	private JPanel contentPane;
-	private PlaceholderTextField companyname;
+	private PlaceholderTextField Nomedaempresa;
 	private PlaceholderTextField email;
-	private PlaceholderTextField vatnumber;
+	private PlaceholderTextField vat;
 	private PlaceholderPasswordField username;
-	private PlaceholderPasswordField pwd;
-	private PlaceholderPasswordField confirmarpwd;
-	private JComboBox box;
+	private PlaceholderPasswordField password;
+	private PlaceholderPasswordField cpf;
+	private JComboBox vendedortipo;
 
 	/**
 	 * Launch the application.
@@ -68,15 +69,15 @@ public class Registo extends JFrame {
 		contentPane.add(MenuLogin);
 		MenuLogin.setLayout(null);
 
-		companyname = new PlaceholderTextField();
-		companyname.addFocusListener(new FocusAdapter() {
+		Nomedaempresa = new PlaceholderTextField();
+		Nomedaempresa.addFocusListener(new FocusAdapter() {
 		});
-		companyname.setBounds(99, 246, 179, 26);
-		companyname.setPlaceholder("Company Name");
-		companyname.setOpaque(true);
+		Nomedaempresa.setBounds(99, 246, 179, 26);
+		Nomedaempresa.setPlaceholder("Company Name");
+		Nomedaempresa.setOpaque(true);
 
-		MenuLogin.add(companyname);
-		companyname.setColumns(10);
+		MenuLogin.add(Nomedaempresa);
+		Nomedaempresa.setColumns(10);
 
 		PlaceholderTextField vatnumber = new PlaceholderTextField();
 		vatnumber.setBounds(99, 283, 179, 26);
@@ -88,17 +89,17 @@ public class Registo extends JFrame {
 		email.setPlaceholder("email");
 		MenuLogin.add(email);
 
-		pwd = new PlaceholderPasswordField();
-		pwd.setOpaque(true);
-		pwd.setPlaceholder("Password");
-		pwd.setBounds(99, 394, 179, 26);
-		MenuLogin.add(pwd);
+		password = new PlaceholderPasswordField();
+		password.setOpaque(true);
+		password.setPlaceholder("Password");
+		password.setBounds(99, 394, 179, 26);
+		MenuLogin.add(password);
 
-		confirmarpwd = new PlaceholderPasswordField();
-		confirmarpwd.setOpaque(true);
-		confirmarpwd.setPlaceholder("Confirmar Password");
-		confirmarpwd.setBounds(99, 431, 179, 26);
-		MenuLogin.add(confirmarpwd);
+		cpf = new PlaceholderPasswordField();
+		cpf.setOpaque(true);
+		cpf.setPlaceholder("Confirmar Password");
+		cpf.setBounds(99, 431, 179, 26);
+		MenuLogin.add(cpf);
 
 		PlaceholderTextField username = new PlaceholderTextField();
 		username.setBounds(99, 357, 179, 26);
@@ -116,11 +117,29 @@ public class Registo extends JFrame {
 		Back.setOpaque(true);
 		Back.setBorderPainted(false);
 
-		JButton Register = new JButton("Register");
-		Register.setOpaque(true);
-		Register.setBorderPainted(false);
-		Register.setBounds(226, 501, 117, 29);
-		MenuLogin.add(Register);
+		JButton Registo = new JButton("Registo");
+        Registo.addActionListener(
+        new ActionListener() {
+            @SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+            if (dados.getinstance().Registo(Integer.valueOf(vat.getText()),Nomedaempresa.getText(),email.getText(), username.getText(), password.getText(), cpf.getText(), (String) vendedortipo.getSelectedItem())) {
+                dispose(); 
+                LoginPage login = new LoginPage();
+                login.setVisible(true);
+                dispose();
+
+            }else {
+                JOptionPane.showMessageDialog(null, "Erro ao registar");
+
+            }
+
+            }
+        });
+		
+		Registo.setOpaque(true);
+		Registo.setBorderPainted(false);
+		Registo.setBounds(226, 501, 117, 29);
+		MenuLogin.add(Registo);
 
 		JComboBox box = new JComboBox();
 		box.setBounds(99, 468, 179, 22);

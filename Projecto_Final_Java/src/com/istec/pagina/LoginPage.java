@@ -1,6 +1,7 @@
 package com.istec.pagina;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Image;
 
@@ -8,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
+import com.istec.main.dados;
 import com.istec.paginas.componentes.PlaceholderPasswordField;
 import com.istec.paginas.componentes.PlaceholderTextField;
 
@@ -32,45 +33,30 @@ import java.awt.SystemColor;
 
 
 
+@SuppressWarnings("serial")
 public class LoginPage extends JFrame {
 
 	private JPanel contentPane;
 	private PlaceholderTextField username;
-	private PlaceholderPasswordField pwd;
+	private PlaceholderPasswordField password;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginPage frame = new LoginPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public LoginPage() {
-		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 923, 755);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		setLocationRelativeTo(null);
 		
 		JPanel MenuLogin = new JPanel();
-		MenuLogin.setBorder(new LineBorder(Color.PINK, 2));
-		MenuLogin.setBackground(SystemColor.activeCaption);
+		MenuLogin.setBackground(new Color(204, 204, 204, 150));
 		MenuLogin.setBounds((getWidth()/2)-(365/2), (getHeight()/2)-(379/2), 365, 379);
 		contentPane.add(MenuLogin);
 		MenuLogin.setLayout(null);
@@ -88,18 +74,25 @@ public class LoginPage extends JFrame {
 		new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				if(dados.getinstance().login(username.getText(), password.getText())) {
+					Dashboard gestao = new Dashboard();
+					gestao.setVisible(true);
+					dispose();
+				}else {
+				JOptionPane.showMessageDialog(null, "Erro");
 			}
+			}	
 		});
 		Login.setOpaque(true);
 		Login.setBorderPainted(false);
 		Login.setBounds(131, 163, 117, 29);
 		MenuLogin.add(Login);
 		
-		pwd = new PlaceholderPasswordField();
-		pwd.setOpaque(true);
-		pwd.setPlaceholder("Password");
-		pwd.setBounds(99, 105, 179, 26);
-		MenuLogin.add(pwd);
+		password = new PlaceholderPasswordField();
+		password.setOpaque(true);
+		password.setPlaceholder("Password");
+		password.setBounds(99, 105, 179, 26);
+		MenuLogin.add(password);
 		
 		JLabel registerLbl = new JLabel("Not registered yet?");
 		registerLbl.setBounds(82, 291, 124, 16);
@@ -109,42 +102,35 @@ public class LoginPage extends JFrame {
 		signin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Mudar para a página de Registo!!");
+				Registo registo = new Registo();
+				registo.setVisible(true);
+				dispose();
 			}
 		});
 		signin.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		signin.setBounds(218, 291, 61, 16);
 		MenuLogin.add(signin);
 		
-		JLabel pwdLbl = new JLabel("Forgot password?");
-		pwdLbl.setBounds(84, 332, 122, 16);
-		MenuLogin.add(pwdLbl);
+		JLabel passwordLbl = new JLabel("Forgot password");
+		passwordLbl.setBounds(84, 332, 122, 16);
+		MenuLogin.add(passwordLbl);
 		
 		JLabel recover = new JLabel("Recover");
 		recover.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Ir para a página de recuperação!!");
+				JOptionPane.showMessageDialog(null, "Ir para a pagina de recuperacao");
 			}
 		});
 		recover.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		recover.setBounds(217, 332, 61, 16);
 		MenuLogin.add(recover);
 		
-		JLabel lblNewLabel = new JLabel("\t\t\t\t\t\tX");
-		lblNewLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(JOptionPane.showInternalConfirmDialog(null,"Tem a certeza que quer fechar a aplica��o?", "Confirmar", JOptionPane.YES_NO_OPTION)==0);
-			}
-		});
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(858, 0, 65, 35);
-		contentPane.add(lblNewLabel);
-
-        setResizable(false);
+		JLabel backgroundImage = new JLabel("New label");
+		backgroundImage.setBounds(0, 0, 923, 755);
+		backgroundImage.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\Rodrigo\\Desktop\\ImagensPV\\POS.jpg").getImage().getScaledInstance(backgroundImage.getWidth(),backgroundImage.getHeight(), Image.SCALE_DEFAULT)));
+		contentPane.add(backgroundImage);
+		
+		setResizable(false);
 	}
 }
-
