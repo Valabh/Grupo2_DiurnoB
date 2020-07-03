@@ -119,16 +119,19 @@ public class LoginPage extends JFrame {
 		recover.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "Ir para a pagina de recuperacao");
-			}
+					RecoverPassword recover = new RecoverPassword ();
+					recover.setVisible(true);
+					dispose();
+					}
 		});
+		
 		recover.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		recover.setBounds(217, 332, 61, 16);
 		MenuLogin.add(recover);
 		
 		JLabel backgroundImage = new JLabel("New label");
 		backgroundImage.setBounds(0, 0, 923, 755);
-		backgroundImage.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\Rodrigo\\Desktop\\ImagensPV\\POS.jpg").getImage().getScaledInstance(backgroundImage.getWidth(),backgroundImage.getHeight(), Image.SCALE_DEFAULT)));
+		backgroundImage.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\harsh\\git\\repository\\Projecto_Final_Java\\Image\\POS.jpg").getImage().getScaledInstance(backgroundImage.getWidth(),backgroundImage.getHeight(), Image.SCALE_DEFAULT)));
 		contentPane.add(backgroundImage);
 		
 		setResizable(false);

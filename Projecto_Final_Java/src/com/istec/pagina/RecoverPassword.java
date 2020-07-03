@@ -81,6 +81,18 @@ public class RecoverPassword extends JFrame {
 		email.setPlaceholder("Insert a registered email");
 		MenuLogin.add(email);
 		
+		JButton Back = new JButton("Back");
+		Back.setBounds(129, 231, 117, 26);
+		MenuLogin.add(Back);
+		Back.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					LoginPage login = new LoginPage();
+					login.setVisible(true);
+					dispose();
+					}
+		});
+		
 		
 		
 		JButton Recover = new JButton("Recover");
@@ -107,6 +119,11 @@ public class RecoverPassword extends JFrame {
         RecoverPassword.setFont(new Font("Arial", Font.BOLD, 14));
         RecoverPassword.setBounds(99, 45, 179, 14);
         MenuLogin.add(RecoverPassword);
+        
+        JLabel backgroundImage = new JLabel("New label");
+		backgroundImage.setBounds(0, 0, 923, 755);
+		backgroundImage.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\harsh\\git\\repository\\Projecto_Final_Java\\Image\\POS.jpg").getImage().getScaledInstance(backgroundImage.getWidth(),backgroundImage.getHeight(), Image.SCALE_DEFAULT)));
+		contentPane.add(backgroundImage);
        
 
 
