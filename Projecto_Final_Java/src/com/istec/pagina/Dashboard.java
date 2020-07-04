@@ -19,8 +19,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
 import com.istec.main.dados;
+import com.istec.objetos.PaginadoVendedor;
 import com.istec.objetos.produto;
-import com.istec.objetos.vendedor;
+
 
 import javax.swing.JFileChooser;
 
@@ -145,8 +146,8 @@ public class Dashboard extends JFrame {
 	Addvendedor.addMouseListener(new MouseAdapter() {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
-			vendedor vendas = new vendedor();
-			vendas.setVisible(true);
+			vendas vendor = new vendas();
+			vendor.setVisible(true);
 			dispose();
 			//adausdsadasd
 		}
@@ -154,22 +155,22 @@ public class Dashboard extends JFrame {
 	Addvendedor.setBounds(771, 13, 98, 75);
 	contentPane.add(Addvendedor);
 	
-	JLabel Addproduto = new JLabel("Addproduto");
-	Addproduto.setBounds(758, 510, 98, 91);
-	Addproduto.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\harsh\\git\\repository\\Projecto_Final_Java\\Image\\add.png").getImage().getScaledInstance(Addproduto.getWidth(),Addproduto.getHeight(), Image.SCALE_DEFAULT)));
-					contentPane.add(Addproduto);
-					Addproduto.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent arg0) {
-							produto product = new produto();
-							product.setVisible(true);
-							dispose();
-							
-						}
-					});
-					
-					contentPane.add(Addproduto);
-					
+//	JLabel Addproduto = new JLabel("Addproduto");
+	//	Addproduto.setBounds(758, 510, 98, 91);
+	//	Addproduto.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\harsh\\git\\repository\\Projecto_Final_Java\\Image\\add.png").getImage().getScaledInstance(Addproduto.getWidth(),Addproduto.getHeight(), Image.SCALE_DEFAULT)));
+	//			contentPane.add(Addproduto);
+	//			Addproduto.addMouseListener(new MouseAdapter() {
+	//				@Override
+	//				public void mouseClicked(MouseEvent arg0) {
+	//					produto product = new produto();
+	//					product.setVisible(true);
+	//					dispose();
+	//					
+	//				}
+	//			});
+	//			
+	//			contentPane.add(Addproduto);
+					//			
 					JPanel panel = new JPanel();
 					panel.setBounds(147, 13, 561, 83);
 					contentPane.add(panel);
@@ -177,21 +178,21 @@ public class Dashboard extends JFrame {
 					setResizable(false);
 					
 					 if(dados.getinstance().getprodutos() != null) { 
-				        ArrayList<vendedor> vendedores = dados.getinstance().getvendedores();
+				        ArrayList<PaginadoVendedor> vendedores = dados.getinstance().getvendedores();
 				        
 				        
-				        for (vendedor v : vendedores) {
-			
-				        	JLabel lblvendedor = new JLabel(v.getusername());         	
-				        	lblvendedor.setSize(80, 80);
-				        	lblvendedor.setHorizontalAlignment(JLabel.CENTER);
-				        	lblvendedor.setVerticalTextPosition(JLabel.BOTTOM);
-				        	lblvendedor.setHorizontalTextPosition(JLabel.CENTER);
-				    		//Image imagemv = new ImageIcon(v.getImagemv()).getImage().getScaledInstance(lblvendedor.getWidth(),lblvendedor.getHeight(), Image.SCALE_DEFAULT);
-				    		//lblvendedor.setIcon(new ImageIcon(imagemv));
-				    		panel.add(lblvendedor);
+		//		        for (PaginadoVendedor v : vd) {
+				        //	
+				        //       	JLabel lblvendedor = new JLabel(v.getusername());         	
+				        //lblvendedor.setSize(80, 80);
+				        //lblvendedor.setHorizontalAlignment(JLabel.CENTER);
+				        //lblvendedor.setVerticalTextPosition(JLabel.BOTTOM);
+				        //lblvendedor.setHorizontalTextPosition(JLabel.CENTER);
+				        //Image imagemv = new ImageIcon(v.getImagemv()).getImage().getScaledInstance(lblvendedor.getWidth(),lblvendedor.getHeight(), Image.SCALE_DEFAULT);
+				        //lblvendedor.setIcon(new ImageIcon(imagemv));
+				        //panel.add(lblvendedor);
 					
-					}
+				        //}
 				}
 		 }
 	}

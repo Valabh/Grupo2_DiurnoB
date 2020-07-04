@@ -10,16 +10,16 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import com.istec.objetos.Administrador;
+import com.istec.objetos.PaginadoVendedor;
 import com.istec.objetos.empresa;
 import com.istec.objetos.produto;
-import com.istec.objetos.vendedor;
 public class dados {
 
     public static dados instance;
     public empresa emp;
-    public vendedor vd;
+    public PaginadoVendedor vd;
     public ArrayList<produto> produtos;
-    public ArrayList<vendedor> vendedores;
+    public ArrayList<PaginadoVendedor> vendedores;
 
 public static dados getinstance() {
     if (instance == null) {
@@ -87,7 +87,7 @@ public  boolean ler() {
 public boolean VendedorRegisto(String username,String email,String password,String cpf) 
 {
 
-    vendedor  vend = new vendedor(username,email,password,cpf);
+	PaginadoVendedor  vend = new PaginadoVendedor(username,email,password,cpf);
     this.vendedores.add(vend);
 
     //guardarVend();
@@ -154,12 +154,12 @@ public  boolean lerProd() {
 public  boolean lerVend() {
     try {
         ObjectInputStream objs = new ObjectInputStream(new FileInputStream(new File("vendedor.dat")));
-        ArrayList<vendedor> result1 = (ArrayList<vendedor>) objs.readObject();
+        ArrayList<PaginadoVendedor> result1 = (ArrayList<PaginadoVendedor>) objs.readObject();
         this.vendedores = result1;
         objs.close();
         return true;
     } catch (FileNotFoundException e) {
-        this.vendedores = new ArrayList<vendedor>();
+        this.vendedores = new ArrayList<PaginadoVendedor>();
         // TODO Auto-generated catch block
     return false;
     } catch (IOException e) {
@@ -179,11 +179,11 @@ public void setprodutos(ArrayList<produto> produtos) {
     this.produtos = produtos;
 }
 
-public ArrayList<vendedor> getvendedores() {
+public ArrayList<PaginadoVendedor> getvendedores() {
     return vendedores;
 }
 
-public void setVendedores(ArrayList<vendedor> vendedores) {
+public void setVendedores(ArrayList<PaginadoVendedor> vendedores) {
     this.vendedores = vendedores;
 }
 

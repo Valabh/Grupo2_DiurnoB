@@ -9,7 +9,7 @@ public class empresa implements Serializable{
 	int Numerodecontribuinte;
 	Administrador administrador;
 	
-	ArrayList<vendedor> vendedores;
+	ArrayList<PaginadoVendedor> vendedores;
 	 
 	public empresa(String Nomedaempresa, int Numerodecontribuinte, Administrador administrador) {
 		
