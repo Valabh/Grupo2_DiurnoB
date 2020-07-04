@@ -26,7 +26,7 @@ public class vendedor extends JFrame {
 
 	private JPanel contentPane;
 	private PlaceholderPasswordField pwd;
-	private PlaceholderPasswordField cfn;
+	private PlaceholderPasswordField cpf;
 	private PlaceholderTextField email;
 	private PlaceholderTextField username;
 	private String imagepath;
@@ -84,11 +84,11 @@ public class vendedor extends JFrame {
 		pwd.setBounds(99, 183, 179, 26);
 		MenuLogin.add(pwd);
 		
-		cfn = new PlaceholderPasswordField();
-		cfn.setOpaque(true);
-		cfn.setPlaceholder("Confirm Password");
-		cfn.setBounds(99, 220, 179, 26);
-		MenuLogin.add(cfn);
+		cpf = new PlaceholderPasswordField();
+		cpf.setOpaque(true);
+		cpf.setPlaceholder("Confirm Password");
+		cpf.setBounds(99, 220, 179, 26);
+		MenuLogin.add(cpf);
 		
 		JButton Registo = new JButton("Registo");
 		Registo.addActionListener(
@@ -97,7 +97,7 @@ public class vendedor extends JFrame {
 
 					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
-					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(), imagepath)){
+					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(), cpf.getText())){
 						dispose(); 
 						Dashboard gestao = new Dashboard();
 						gestao.setVisible(true);

@@ -19,7 +19,12 @@ public class dados {
     public empresa emp;
     public PaginadoVendedor vd;
     public ArrayList<produto> produtos;
-    public ArrayList<PaginadoVendedor> vendedores;
+    public ArrayList<PaginadoVendedor> vendedores= new ArrayList<PaginadoVendedor>();
+    public dados() {
+    	ler();
+    	lerVend();
+    }
+    
 
 public static dados getinstance() {
     if (instance == null) {
@@ -83,22 +88,27 @@ public  boolean ler() {
     }
 }
 
+
+
 //VENDEDOR
 public boolean VendedorRegisto(String username,String email,String password,String cpf) 
 {
 
 	PaginadoVendedor  vend = new PaginadoVendedor(username,email,password,cpf);
+    if(this.vendedores==null) {
+    
+this.vendedores= new ArrayList<PaginadoVendedor>();
+    }
     this.vendedores.add(vend);
-
-    //guardarVend();
+    guardarVend();
     return true;
 }
 
 //VENDAS
-public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto) 
+public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto, String Foto) 
 {
 
-    produto  prod = new produto (ImagemdoProduto, Designacao, Codigo,Preco,TipodeProduto);
+    produto  prod = new produto (ImagemdoProduto, Designacao, Codigo,Preco,TipodeProduto,Foto);
     this.produtos.add(prod);
 
     //guardarProd();
@@ -107,8 +117,8 @@ public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, int Cod
 
 public  void guardarVend() {
     try {
-        ObjectOutputStream objs = new ObjectOutputStream(new FileOutputStream(new File("vendedor.dat")));
-        objs.writeObject(vd);
+        ObjectOutputStream objs = new ObjectOutputStream(new FileOutputStream(new File("regisvend.dat")));
+        objs.writeObject(this.vendedores);
         objs.close();
     } catch (FileNotFoundException e) {
         // TODO Auto-generated catch block
@@ -153,7 +163,7 @@ public  boolean lerProd() {
 }
 public  boolean lerVend() {
     try {
-        ObjectInputStream objs = new ObjectInputStream(new FileInputStream(new File("vendedor.dat")));
+        ObjectInputStream objs = new ObjectInputStream(new FileInputStream(new File("regisvend.dat")));
         ArrayList<PaginadoVendedor> result1 = (ArrayList<PaginadoVendedor>) objs.readObject();
         this.vendedores = result1;
         objs.close();

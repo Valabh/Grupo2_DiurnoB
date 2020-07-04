@@ -10,8 +10,9 @@ public class produto implements Serializable {
 	int Codigo;
 	int Preco;
 	String TipodeProduto;
+	String Foto;
 
-	public produto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto) {
+	public produto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto, String Foto) {
 
 		super();
 
@@ -20,6 +21,7 @@ public class produto implements Serializable {
 		this.Codigo = Codigo;
 		this.Preco = Preco;
 		this.TipodeProduto = TipodeProduto;
+		this.Foto= Foto;
 
 	}
 
@@ -47,6 +49,10 @@ public class produto implements Serializable {
 	public String getTipodeProduto() {
 
 		return TipodeProduto;
+	}
+	public String getFoto() {
+
+		return Foto;
 	}
 
 }
