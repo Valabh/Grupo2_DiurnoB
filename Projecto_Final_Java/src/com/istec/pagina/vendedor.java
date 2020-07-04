@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.istec.main.dados;
+import com.istec.objetos.PaginadoVendedor;
 import com.istec.paginas.componentes.PlaceholderPasswordField;
 import com.istec.paginas.componentes.PlaceholderTextField;
 
@@ -96,7 +97,7 @@ public class vendedor extends JFrame {
 
 					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
-					if (dados.getinstance().PaginadoVendedor(username.getText(),email.getText(),pwd.getText(),cpf.getText(), imagepath)){
+					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(),cpf.getText(), imagepath)){
 						dispose(); 
 						Dashboard gestao = new Dashboard();
 						gestao.setVisible(true);
@@ -104,7 +105,7 @@ public class vendedor extends JFrame {
 						
 					}else {
 						JOptionPane.showMessageDialog(null, "Erro no Registo");
-
+				                                 	
 					}
 					
 					}
