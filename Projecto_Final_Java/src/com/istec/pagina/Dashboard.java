@@ -148,7 +148,7 @@ public class Dashboard extends JFrame {
 			vendedor vendas = new vendedor();
 			vendas.setVisible(true);
 			dispose();
-			
+			//adausdsadasd
 		}
 	});
 	Addvendedor.setBounds(771, 13, 98, 75);
