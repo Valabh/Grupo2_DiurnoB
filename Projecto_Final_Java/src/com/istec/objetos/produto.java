@@ -7,12 +7,11 @@ public class produto implements Serializable {
 
 	String ImagemdoProduto;
 	String Designacao;
-	int Codigo;
-	int Preco;
+	String Codigo;
+	String Preco;
 	String TipodeProduto;
-	String Foto;
 
-	public produto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto, String Foto) {
+	public produto(String ImagemdoProduto, String Designacao, String Codigo, String Preco, String TipodeProduto) {
 
 		super();
 
@@ -21,7 +20,7 @@ public class produto implements Serializable {
 		this.Codigo = Codigo;
 		this.Preco = Preco;
 		this.TipodeProduto = TipodeProduto;
-		this.Foto= Foto;
+
 
 	}
 
@@ -36,12 +35,12 @@ public class produto implements Serializable {
 
 	}
 
-	public int Codigo() {
+	public String Codigo() {
 
 		return Codigo;
 	}
 
-	public int getPreco() {
+	public String getPreco() {
 
 		return Preco;
 	}
@@ -50,9 +49,6 @@ public class produto implements Serializable {
 
 		return TipodeProduto;
 	}
-	public String getFoto() {
 
-		return Foto;
-	}
 
 }

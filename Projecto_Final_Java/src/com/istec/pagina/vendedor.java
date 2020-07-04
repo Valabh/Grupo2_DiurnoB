@@ -128,7 +128,7 @@ public class vendedor extends JFrame {
 				int result = jFileChooser.showSaveDialog(null);
 				if (result == JFileChooser.APPROVE_OPTION) {
 						try {
-				//			imagepath = jFileChooser.getSelectedFile().getAbsolutePath();
+							imagepath = jFileChooser.getSelectedFile().getAbsolutePath();
 						} catch (Exception e) {
 							
 							e.printStackTrace();

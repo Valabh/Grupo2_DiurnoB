@@ -3,6 +3,7 @@ package com.istec.pagina;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -26,9 +27,10 @@ public class PaginadoProduto extends JFrame {
 	private PlaceholderTextField Designacao;
 	private PlaceholderTextField Codigo;
 	private PlaceholderPasswordField Preco;
+	private String imagepath;
 	
 	
-	private JComboBox Tipo_produto;
+	private JComboBox TipodeProduto;
 
 	public PaginadoProduto() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,12 +86,12 @@ public class PaginadoProduto extends JFrame {
 		Preco.setBounds(99, 183, 179, 26);
 		MenuLogin.add(Preco);
 		
-		JComboBox Tipo_produto = new JComboBox();
-		Tipo_produto.setBounds(99, 220, 179, 22);
-		MenuLogin.add(Tipo_produto);
-		Tipo_produto.addItem("Snacks");
-		Tipo_produto.addItem("Drinks");
-		Tipo_produto.addItem("Hot Drinks");
+		JComboBox TipodeProduto = new JComboBox();
+		TipodeProduto.setBounds(99, 220, 179, 22);
+		MenuLogin.add(TipodeProduto);
+		TipodeProduto.addItem("Snacks");
+		TipodeProduto.addItem("Drinks");
+		TipodeProduto.addItem("Hot Drinks");
 		
 		
 		JButton Registo = new JButton("Registo");
@@ -97,8 +99,8 @@ public class PaginadoProduto extends JFrame {
 			@SuppressWarnings("deprecation")
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, Tipo_produto.getSelectedItem());
-				if(dados.getinstance().ProdutoRegisto(Designacao.getText(), Codigo.getText(), Preco.getText() , (String) Tipo_produto.getSelectedItem())) {
+				JOptionPane.showMessageDialog(null, TipodeProduto.getSelectedItem());
+				if(dados.getinstance().ProdutoRegisto(Designacao.getText(), Codigo.getText(), Preco.getText() , (String) TipodeProduto.getSelectedItem(),imagepath)) {
 					Dashboard gestao = new Dashboard();
 					gestao.setVisible(true);
 				}else {
@@ -116,7 +118,7 @@ public class PaginadoProduto extends JFrame {
 		JLabel AddProduto = new JLabel("AddProduto");
 		AddProduto.setBounds(131, 11, 98, 91);
 		MenuLogin.add(AddProduto);
-		AddProduto.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\gonga\\git\\Grupo1_DiurnoB\\ProjetoFinal\\add.png").getImage().getScaledInstance(AddProduto.getWidth(),AddProduto.getHeight(), Image.SCALE_DEFAULT)));
+		AddProduto.setIcon(new ImageIcon(new ImageIcon("C:\\Users\\harsh\\git\\repository\\Projecto_Final_Java\\Image\\add.png").getImage().getScaledInstance(AddProduto.getWidth(),AddProduto.getHeight(), Image.SCALE_DEFAULT)));
 		AddProduto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

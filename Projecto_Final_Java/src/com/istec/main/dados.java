@@ -23,6 +23,7 @@ public class dados {
     public dados() {
     	ler();
     	lerVend();
+    	lerProd();
     }
     
 
@@ -91,10 +92,10 @@ public  boolean ler() {
 
 
 //VENDEDOR
-public boolean VendedorRegisto(String username,String email,String password,String cpf) 
+public boolean VendedorRegisto(String username,String email,String password,String cpf, String foto) 
 {
 
-	PaginadoVendedor  vend = new PaginadoVendedor(username,email,password,cpf);
+	PaginadoVendedor  vend = new PaginadoVendedor(username,email,password,cpf,foto);
     if(this.vendedores==null) {
     
 this.vendedores= new ArrayList<PaginadoVendedor>();
@@ -105,13 +106,15 @@ this.vendedores= new ArrayList<PaginadoVendedor>();
 }
 
 //VENDAS
-public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, int Codigo, int Preco, String TipodeProduto, String Foto) 
+public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, String Codigo, String Preco, String TipodeProduto) 
 {
 
-    produto  prod = new produto (ImagemdoProduto, Designacao, Codigo,Preco,TipodeProduto,Foto);
+    produto  prod = new produto (ImagemdoProduto, Designacao ,Codigo,Preco,TipodeProduto);
+    if (this.produtos == null) {
+    this.produtos = new ArrayList<produto>();
+    }
     this.produtos.add(prod);
-
-    //guardarProd();
+    guardarProd();
     return true;
 }
 

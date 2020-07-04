@@ -151,7 +151,7 @@ public class Dashboard extends JFrame {
 		 Addproduto.addMouseListener(new MouseAdapter() {
 		 @Override
 		 public void mouseClicked(MouseEvent arg0) {
-		 produto product = new produto();
+		 PaginadoProduto product = new PaginadoProduto();
 		 product.setVisible(true);
 		 dispose();
 		
@@ -169,20 +169,19 @@ public class Dashboard extends JFrame {
 		if (dados.getinstance().getprodutos() != null) {
 			ArrayList<PaginadoVendedor> vendedores = dados.getinstance().getvendedores();
 
-			// for (PaginadoVendedor v : vd) {
-			//
-			// JLabel lblvendedor = new JLabel(v.getusername());
-			// lblvendedor.setSize(80, 80);
-			// lblvendedor.setHorizontalAlignment(JLabel.CENTER);
-			// lblvendedor.setVerticalTextPosition(JLabel.BOTTOM);
-			// lblvendedor.setHorizontalTextPosition(JLabel.CENTER);
-			// Image imagemv = new
-			// ImageIcon(v.getImagemv()).getImage().getScaledInstance(lblvendedor.getWidth(),lblvendedor.getHeight(),
-			// Image.SCALE_DEFAULT);
-			// lblvendedor.setIcon(new ImageIcon(imagemv));
-			// panel.add(lblvendedor);
+			 for (PaginadoVendedor v : vendedores) {
+			
+			 JLabel lblvendedor = new JLabel(v.getusername());
+			 lblvendedor.setSize(80, 80);
+			 lblvendedor.setHorizontalAlignment(JLabel.CENTER);
+			 lblvendedor.setVerticalTextPosition(JLabel.BOTTOM);
+			lblvendedor.setHorizontalTextPosition(JLabel.CENTER);
+			 Image foto = new ImageIcon(v.getfoto()).getImage().getScaledInstance(lblvendedor.getWidth(),lblvendedor.getHeight(),
+			 Image.SCALE_DEFAULT);
+			lblvendedor.setIcon(new ImageIcon(foto));
+			panel.add(lblvendedor);
 
-			// }
+			 }
 		}
 	}
 }

@@ -9,14 +9,16 @@ public class PaginadoVendedor extends user implements Serializable {
 		
 		String email;
 		String cpf;
+		String foto;
 		
 	
-	public PaginadoVendedor(String username,String email,String password,String cpf) {
+	public PaginadoVendedor(String username,String email,String password,String cpf,String foto) {
 		
 		
 		super(username,password);
 		this.cpf=cpf;
 		this.email=email;
+		this.foto=foto;
 			
 	}
 	
@@ -28,6 +30,10 @@ public String getemail(){
 	public String getcpf(){
 		
 		return cpf;
+	}
+	
+	public String getfoto() {
+		return foto;
 	}
 	
 
