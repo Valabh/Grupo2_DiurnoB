@@ -97,7 +97,7 @@ public class vendedor extends JFrame {
 
 					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
-					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(),cpf.getText(), imagepath)){
+					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(), imagepath)){
 						dispose(); 
 						Dashboard gestao = new Dashboard();
 						gestao.setVisible(true);
