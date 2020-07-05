@@ -29,7 +29,7 @@ public class vendedor extends JFrame {
 	private PlaceholderPasswordField cpf;
 	private PlaceholderTextField email;
 	private PlaceholderTextField username;
-	private String imagepath;
+	private String foto;
 	
 	public vendedor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,7 +97,7 @@ public class vendedor extends JFrame {
 
 					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
-					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(), cpf.getText())){
+					if (dados.getinstance().VendedorRegisto(username.getText(),email.getText(),pwd.getText(), cpf.getText(), foto)){
 						dispose(); 
 						Dashboard gestao = new Dashboard();
 						gestao.setVisible(true);
@@ -128,7 +128,7 @@ public class vendedor extends JFrame {
 				int result = jFileChooser.showSaveDialog(null);
 				if (result == JFileChooser.APPROVE_OPTION) {
 						try {
-							imagepath = jFileChooser.getSelectedFile().getAbsolutePath();
+							foto = jFileChooser.getSelectedFile().getAbsolutePath();
 						} catch (Exception e) {
 							
 							e.printStackTrace();
