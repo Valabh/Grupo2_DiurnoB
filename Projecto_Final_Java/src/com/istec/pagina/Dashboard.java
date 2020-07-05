@@ -74,7 +74,7 @@ public class Dashboard extends JFrame {
 					JLabel lblNewLabel = new JLabel();
 					lblNewLabel.setBounds(0, 0, 40, 40);
 					lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
-					Snacks.add(lblNewLabel);
+					snacks.add(lblNewLabel);
 				}
 			}
 		}
