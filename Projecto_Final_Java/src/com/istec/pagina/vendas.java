@@ -138,25 +138,6 @@ public class vendas extends JFrame {
 			panel.add(produtosPane);
 			produtosPane.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 5));
 			
-			
-			
-			
-			
-			JButton Voltar = new JButton("Back");
-			Voltar.setBounds(805, 0, 89, 23);
-			contentPane.add( Voltar);
-			Voltar.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent arg0) {
-					Dashboard gestaop = new Dashboard();
-					gestaop.setVisible(true);
-					dispose();
-					
-				}
-			});
-			Voltar.setBounds(805, 0, 89, 23);
-			contentPane.add(Voltar);
-			
 			setResizable(false);
 		}
 }
