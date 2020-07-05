@@ -106,10 +106,10 @@ this.vendedores= new ArrayList<PaginadoVendedor>();
 }
 
 //VENDAS
-public boolean ProdutoRegisto(String ImagemdoProduto, String Designacao, String Codigo, String Preco, String TipodeProduto) 
+public boolean ProdutoRegisto(String foto, String Designacao, String Codigo, String Preco, String TipodeProduto) 
 {
 
-    produto  prod = new produto (ImagemdoProduto, Designacao ,Codigo,Preco,TipodeProduto);
+    produto  prod = new produto (foto, Designacao ,Codigo,Preco,TipodeProduto);
     if (this.produtos == null) {
     this.produtos = new ArrayList<produto>();
     }

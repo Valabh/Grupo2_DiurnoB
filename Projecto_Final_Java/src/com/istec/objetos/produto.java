@@ -5,17 +5,17 @@ import java.io.Serializable;
 
 public class produto implements Serializable {
 
-	String ImagemdoProduto;
+	String foto;
 	String Designacao;
 	String Codigo;
 	String Preco;
 	String TipodeProduto;
 
-	public produto(String ImagemdoProduto, String Designacao, String Codigo, String Preco, String TipodeProduto) {
+	public produto(String foto, String Designacao, String Codigo, String Preco, String TipodeProduto) {
 
 		super();
 
-		this.ImagemdoProduto = ImagemdoProduto;
+		this.foto = foto;
 		this.Designacao = Designacao;
 		this.Codigo = Codigo;
 		this.Preco = Preco;
@@ -24,9 +24,9 @@ public class produto implements Serializable {
 
 	}
 
-	public String getImagemdoProduto() {
+	public String getfoto() {
 
-		return ImagemdoProduto;
+		return foto;
 	}
 
 	public String getDesignacao() {

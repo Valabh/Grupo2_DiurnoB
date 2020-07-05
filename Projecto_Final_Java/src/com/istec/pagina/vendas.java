@@ -64,7 +64,7 @@ public class vendas extends JFrame {
 				{	
 				JLabel lblNewLabel = new JLabel();
 				lblNewLabel.setBounds(0, 0, 40, 40);
-				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getImagemdoProduto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
+				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
 				Snacks.add(lblNewLabel);
 			}
 			}
@@ -84,7 +84,7 @@ public class vendas extends JFrame {
 				if (p.getTipodeProduto().equals("Drinks")){
 				JLabel lblNewLabel = new JLabel();
 				lblNewLabel.setBounds(0, 0, 40, 40);
-				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getImagemdoProduto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
+				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
 				Drinks.add(lblNewLabel);
 			}
 		}
@@ -104,7 +104,7 @@ public class vendas extends JFrame {
 				{	
 				JLabel lblNewLabel = new JLabel();
 				lblNewLabel.setBounds(0, 0, 40, 40);
-				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getImagemdoProduto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
+				lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
 				HotDrinks.add(lblNewLabel);
 			}
 		}

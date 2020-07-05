@@ -27,7 +27,7 @@ public class PaginadoProduto extends JFrame {
 	private PlaceholderTextField Designacao;
 	private PlaceholderTextField Codigo;
 	private PlaceholderPasswordField Preco;
-	private String imagepath;
+	private String foto;
 	
 	
 	private JComboBox TipodeProduto;
@@ -100,7 +100,7 @@ public class PaginadoProduto extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JOptionPane.showMessageDialog(null, TipodeProduto.getSelectedItem());
-				if(dados.getinstance().ProdutoRegisto(Designacao.getText(), Codigo.getText(), Preco.getText() , (String) TipodeProduto.getSelectedItem(),imagepath)) {
+				if(dados.getinstance().ProdutoRegisto(Designacao.getText(), Codigo.getText(), Preco.getText() , (String) TipodeProduto.getSelectedItem(),foto)) {
 					Dashboard gestao = new Dashboard();
 					gestao.setVisible(true);
 				}else {
@@ -127,7 +127,7 @@ public class PaginadoProduto extends JFrame {
 				int result = jFileChooser.showSaveDialog(null);
 				if (result == JFileChooser.APPROVE_OPTION) {
 						try {
-							imagepath = jFileChooser.getSelectedFile().getAbsolutePath();
+							foto = jFileChooser.getSelectedFile().getAbsolutePath();
 						} catch (Exception e) {
 							
 							e.printStackTrace();
