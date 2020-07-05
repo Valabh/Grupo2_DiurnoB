@@ -2,7 +2,7 @@ package com.istec.objetos;
 
 import java.io.Serializable;
 
-
+@SuppressWarnings("serial")
 public class produto implements Serializable {
 
 	String foto;

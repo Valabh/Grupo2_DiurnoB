@@ -1,11 +1,8 @@
 package com.istec.pagina;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -14,7 +11,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
@@ -23,17 +19,15 @@ import com.istec.main.dados;
 import com.istec.objetos.PaginadoVendedor;
 import com.istec.objetos.produto;
 
-import javax.swing.JFileChooser;
-
 public class Dashboard extends JFrame {
 
 	private JPanel contentPane;
 	private JButton manage;
 	private JButton stats;
 	private JTabbedPane painel;
-	private JPanel drinks;
-	private JPanel hotdrinks;
-	private JPanel snacks;
+	private JPanel Drinks;
+	private JPanel Hotdrinks;
+	private JPanel Snacks;
 
 	public Dashboard() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,6 +57,11 @@ public class Dashboard extends JFrame {
 		AdicionarProduto.setBounds(146, 106, 684, 385);
 		contentPane.add(AdicionarProduto);
 
+		JPanel Snacks = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) Snacks.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		AdicionarProduto.addTab("Snacks", null, Snacks, null);
+		
 		if (dados.getinstance().getprodutos() != null) {
 
 			ArrayList<produto> produtos = dados.getinstance().getprodutos();
@@ -74,7 +73,7 @@ public class Dashboard extends JFrame {
 					JLabel lblNewLabel = new JLabel();
 					lblNewLabel.setBounds(0, 0, 40, 40);
 					lblNewLabel.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_DEFAULT)));
-					snacks.add(lblNewLabel);
+					Snacks.add(lblNewLabel);
 				}
 			}
 		}
@@ -82,13 +81,13 @@ public class Dashboard extends JFrame {
 		JPanel HotDrinks = new JPanel();
 		FlowLayout flowLayout2 = (FlowLayout) HotDrinks.getLayout();
 		flowLayout2.setAlignment(FlowLayout.LEFT);
-		AdicionarProduto.addTab("Hot Drinks", null, HotDrinks, null);
+		AdicionarProduto.addTab("HotDrinks", null, HotDrinks, null);
 
 		if (dados.getinstance().getprodutos() != null) {
 
 			ArrayList<produto> produtos = dados.getinstance().getprodutos();
 			for (produto p : produtos) {
-				if (p.getTipodeProduto().equals("Hot Drinks")) {
+				if (p.getTipodeProduto().equals("HotDrinks")) {
 					JLabel lblNewLabel_2 = new JLabel();
 					lblNewLabel_2.setBounds(0, 0, 40, 40);
 					lblNewLabel_2.setIcon(new ImageIcon(new ImageIcon(p.getfoto()).getImage().getScaledInstance(lblNewLabel_2.getWidth(), lblNewLabel_2.getHeight(), Image.SCALE_DEFAULT)));
@@ -102,10 +101,6 @@ public class Dashboard extends JFrame {
 		flowLayout3.setAlignment(FlowLayout.LEFT);
 		AdicionarProduto.addTab("Drinks", null, Drinks, null);
 		
-				JPanel Snacks = new JPanel();
-				FlowLayout flowLayout = (FlowLayout) Snacks.getLayout();
-				flowLayout.setAlignment(FlowLayout.LEFT);
-				AdicionarProduto.addTab("Snacks", null, Snacks, null);
 
 		if (dados.getinstance().getprodutos() != null) {
 
