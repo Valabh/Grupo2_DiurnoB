@@ -39,7 +39,7 @@ public class Dashboard extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 641);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLUE);
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -62,11 +62,6 @@ public class Dashboard extends JFrame {
 		JTabbedPane AdicionarProduto = new JTabbedPane(JTabbedPane.TOP);
 		AdicionarProduto.setBounds(146, 106, 684, 385);
 		contentPane.add(AdicionarProduto);
-
-		JPanel Snacks = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) Snacks.getLayout();
-		flowLayout.setAlignment(FlowLayout.LEFT);
-		AdicionarProduto.addTab("Snacks", null, Snacks, null);
 
 		if (dados.getinstance().getprodutos() != null) {
 
@@ -106,6 +101,11 @@ public class Dashboard extends JFrame {
 		FlowLayout flowLayout3 = (FlowLayout) Drinks.getLayout();
 		flowLayout3.setAlignment(FlowLayout.LEFT);
 		AdicionarProduto.addTab("Drinks", null, Drinks, null);
+		
+				JPanel Snacks = new JPanel();
+				FlowLayout flowLayout = (FlowLayout) Snacks.getLayout();
+				flowLayout.setAlignment(FlowLayout.LEFT);
+				AdicionarProduto.addTab("Snacks", null, Snacks, null);
 
 		if (dados.getinstance().getprodutos() != null) {
 
